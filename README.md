@@ -91,3 +91,9 @@ Normal Color : String : The normal button text color
 Hover Color  : String : The hover button text color
 
 The variables are like a CSS color attribute.
+
+#### Sprites used in the template are not mine. Here are the links
+
+Character: [Generated with PixelDudesMaker](https://0x72.itch.io/pixeldudesmaker)
+Template Tile: [Kenney PixelShmup](https://www.kenney.nl/assets/pixel-shmup)
+Menu Background Image: [Made by Lucas de Oliveira](https://www.artstation.com/artwork/L3a9X5)
