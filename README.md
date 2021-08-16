@@ -12,6 +12,9 @@ To change the menu you have to edit _"rethor/menu.lua"_.
 ## How it works
 It uses **Electron** to create windows and **fengari-web** to convert your Lua code to JavaScript.
 
+## How to change sprites
+At the moment, Rethor is very limited. You can only change sprites, changing the files that come with Rethor and putting the same name.
+
 ## How to test it
 Do _"npm start"_ to test your game. To export it you have to compile the **Electron app**.
 
