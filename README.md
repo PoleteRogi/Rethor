@@ -16,7 +16,8 @@ It uses **Electron** to create windows and **fengari-web** to convert your Lua c
 At the moment, Rethor is very limited. You can only change sprites, changing the files that come with Rethor and putting the same name.
 
 ## How to test it
-Do _"npm start"_ to test your game. To export it you have to compile the **Electron app**.
+First, you have to install Node and Electron.
+Then do, _"npm start"_ to test your game. To export it you have to compile the Electron App.
 
 # Rethor Lua Wiki
 Here are all the functions and variables that Rethor Lua haves.
