@@ -2,8 +2,9 @@ var canvas = document.getElementById('screen');
 var ctx = canvas.getContext('2d', {alpha: false});
 
 ctx.imageSmoothingEnabled = false;
-
 let characterAnimation = 1;
+
+let effect = "none";
 
 var img = document.getElementById('img');
 var backgroundTile = document.getElementById('bg')
@@ -41,7 +42,10 @@ document.addEventListener('keydown', function(e) {
             if(isInMenu) {
                 menuIndex--;
                 if(menuIndex == -1) {
-                    menuIndex = 2;
+                    menuIndex = 1;
+                }
+                if(menuIndex == -2) {
+                    menuIndex = -1;
                 }
             }
             break;
@@ -50,7 +54,7 @@ document.addEventListener('keydown', function(e) {
             fengari.load('downArrowPressed = ' + downArrowPressed)();
             if(isInMenu) {
                 menuIndex++;
-                if(menuIndex == 3) {
+                if(menuIndex == 2) {
                     menuIndex = 0;
                 }
             }
@@ -68,9 +72,14 @@ document.addEventListener('keydown', function(e) {
             fengari.load('interactPressed = ' + interactPressed)();
             break;
         case 13:
+            //Load game
             if(isInMenu == true && menuIndex == 0) {
                 fengari.load('isInMenu = false')();
-                console.log("hello");
+            }
+
+            //Exit
+            if(isInMenu && menuIndex == 1) {
+                window.close();
             }
             break;
     }
@@ -110,9 +119,11 @@ document.addEventListener('mousedown', function(e) {
 function loop() {
     requestAnimationFrame(loop);
     RequestLua();
+    ctx.filter = effect;
     ClearScreen();
     DrawObjects();
     DrawCharacter();
+    ctx.filter = "none";
     DrawInterface();
 }
 
@@ -149,10 +160,15 @@ function RequestLua() {
     menuBackground = fengari.load('return menuBackground')();
     menuNormalColor = fengari.load('return menuNormalColor')();
     menuHoverColor = fengari.load('return menuHoverColor')();
+    effect = fengari.load('return effect')();
 }
 function DrawCharacter() {
     if(!isInMenu) {
-        ctx.drawImage(img, fengari.load('return x')(), fengari.load('return y')());
+        var x = fengari.load('return x')();
+        var y = fengari.load('return y')();
+        ctx.translate(x, y);
+        ctx.drawImage(img, 0, 0);
+        ctx.translate(-x, -y);
     }
 }
 
@@ -185,15 +201,7 @@ function DrawMenu() {
         ctx.fillStyle = menuNormalColor;
     ctx.font = "15px Pixel";
     ctx.textAlign = "center";
-    ctx.fillText("Settings", canvas.width / 2, 85)
-
-    if(menuIndex == 2) 
-        ctx.fillStyle = menuHoverColor;
-    else
-        ctx.fillStyle = menuNormalColor;
-    ctx.font = "15px Pixel";
-    ctx.textAlign = "center";
-    ctx.fillText("Exit", canvas.width / 2, 105)
+    ctx.fillText("Exit", canvas.width / 2, 85)
 }
 
 function DrawDialogue() {

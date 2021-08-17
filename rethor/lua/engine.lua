@@ -26,6 +26,8 @@ objectsX = {};
 objectsY = {};
 objectSprites = {};
 
+effect = "none";
+
 function dialogue(entity, text)
     isInDialogue = true;
     dialogueEntity = entity;
@@ -56,4 +58,44 @@ end
 function menuSettings(normalColor, hoverColor)
     menuNormalColor = normalColor;
     menuHoverColor = hoverColor;
+end
+
+function effectBlur(pixels)
+    effect = "blur(" .. pixels .. "px)";
+end
+
+function effectBrightness(percentage)
+    effect = "brightness(" .. percentage .. "%)";
+end
+
+function effectContrast(percentage)
+    effect = "contrast(" .. percentage .. "%)";
+end
+
+function effectDropShadow(offsetX, offsetY, blurRadius, color)
+    effect = "drop-shadow(" .. offsetX .. ", " .. offsetY .. ", " .. blurRadius .. ", " .. color .. ")";
+end
+
+function effectGrayScale(percentage)
+    effect = "grayscale(" .. percentage .. "%)";
+end
+
+function effectHueRotate(angle)
+    effect = "hue-rotate(".. angle .."deg)";
+end
+
+function effectInvert(percentage)
+    effect = "invert(".. percentage .. "%)";
+end
+
+function effectSaturate(percentage)
+    effect = "saturate(" .. percentage .. "%)";
+end
+
+function sepia(percentage)
+    effect = "sepia(" .. percentage .. "%)";
+end
+
+function removeEffect()
+    effect = "none";
 end

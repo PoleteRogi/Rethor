@@ -1,6 +1,5 @@
 canvas {
-    width: 100vw;
-    height: 100vh;
+    width: 100vmin;
     image-rendering: -moz-crisp-edges;
     image-rendering: -webkit-crisp-edges;
     image-rendering: pixelated;
@@ -8,9 +7,15 @@ canvas {
 }
 
 body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 0;
   margin: 0;
   overflow: hidden;
+  background: black;
 }
 
 @font-face {
