@@ -81,18 +81,18 @@ function effectGrayScale(percentage)
 end
 
 function effectHueRotate(angle)
-    effect = "hue-rotate(".. angle .."deg)";
+    effect = "hue-rotate(" .. angle .."deg)";
 end
 
 function effectInvert(percentage)
-    effect = "invert(".. percentage .. "%)";
+    effect = "invert(" .. percentage .. "%)";
 end
 
 function effectSaturate(percentage)
     effect = "saturate(" .. percentage .. "%)";
 end
 
-function sepia(percentage)
+function effectSepia(percentage)
     effect = "sepia(" .. percentage .. "%)";
 end
 
