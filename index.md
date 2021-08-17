@@ -6,6 +6,9 @@ Rethor is open source and it makes it easy to code games. Just code your dream g
 ## Limitations
 Rethor is still in development, so its very limited by the time. But if you want, you can support us! At the itch.io page, you can donate.
 
+## Wiki
+Check out the wiki [here](wiki/)
+
 #### Sprites used in the template are not mine. Here are the links
 
 Character: [Generated with PixelDudesMaker](https://0x72.itch.io/pixeldudesmaker)
