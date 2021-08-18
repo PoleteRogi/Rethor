@@ -3,6 +3,9 @@ backgroundTiling = true
 
 gameTitle = "Top Down Template"
 
+x = 128;
+y = 128;
+
 dialogueIndex = 0;
 
 --main loop
@@ -10,18 +13,22 @@ function loop()
     --controller
     if rightArrowPressed then
         x = x + 1
+        cameraX = cameraX + 1;
     end
 
     if leftArrowPressed then
         x = x - 1
+        cameraX = cameraX - 1;
     end
 
     if upArrowPressed then
-        y = y - 1
+        y = y + 1
+        cameraY = cameraY + 1;
     end
 
     if downArrowPressed then
-        y = y + 1
+        y = y - 1
+        cameraY = cameraY - 1;
     end
 
     --dialogue

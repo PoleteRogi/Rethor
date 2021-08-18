@@ -1,5 +1,7 @@
 x = 0;
 y = 0;
+cameraX = 0;
+cameraY = 0;
 sprite = "character";
 
 backgroundTiling = false;

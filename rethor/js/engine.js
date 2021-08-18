@@ -166,9 +166,9 @@ function DrawCharacter() {
     if(!isInMenu) {
         var x = fengari.load('return x')();
         var y = fengari.load('return y')();
-        ctx.translate(x, y);
-        ctx.drawImage(img, 0, 0);
-        ctx.translate(-x, -y);
+        var cameraX = fengari.load('return cameraX')();
+        var cameraY = fengari.load('return cameraY')();
+        ctx.drawImage(img, x - cameraX - img.width / 2, y - cameraY - img.height / 2);
     }
 }
 
@@ -218,11 +218,13 @@ function DrawDialogue() {
 function ClearScreen() {
     ctx.fillStyle = backgroundColor;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
+    offsetX = 0 - fengari.load('return cameraX')();
+    offsetY = fengari.load('return cameraY')();
     if(!isInMenu || !hasMenuBackground) {
         if(backgroundTiling) {
             for(var x = 0; x < canvas.width / backgroundTile.width; x++) {
                 for(var y = 0; y < canvas.height / backgroundTile.height; y++) {
-                    ctx.drawImage(backgroundTile, x * backgroundTile.width, y * backgroundTile.height);
+                    ctx.drawImage(backgroundTile, x * backgroundTile.width + offsetX, y * backgroundTile.height + offsetY);
                 }
             }
         }
