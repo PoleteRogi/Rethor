@@ -2,10 +2,19 @@ x = 0;
 y = 0;
 cameraX = 0;
 cameraY = 0;
+
+mapSizeX = 16;
+mapSizeY = 16;
+
+mapX = 0;
+mapY = 0;
 sprite = "character";
 
+resolutionX = 256;
+resolutionY = 256;
+
 backgroundTiling = false;
-backgroundColor = "#fff6d3";
+backgroundColor = "white";
 
 upArrowPressed = false;
 downArrowPressed = false;

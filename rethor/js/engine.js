@@ -9,6 +9,9 @@ let effect = "none";
 var img = document.getElementById('img');
 var backgroundTile = document.getElementById('bg')
 
+let mapX = 0;
+let mapY = 0;
+
 let upArrowPressed = false;
 let downArrowPressed = false;
 let rightArrowPressed = false;
@@ -161,6 +164,10 @@ function RequestLua() {
     menuNormalColor = fengari.load('return menuNormalColor')();
     menuHoverColor = fengari.load('return menuHoverColor')();
     effect = fengari.load('return effect')();
+    canvas.width = fengari.load('return resolutionX')();
+    canvas.height = fengari.load('return resolutionY')();
+    mapX = fengari.load('return mapX')();
+    mapY = fengari.load('return mapY')();
 }
 function DrawCharacter() {
     if(!isInMenu) {
@@ -219,12 +226,12 @@ function ClearScreen() {
     ctx.fillStyle = backgroundColor;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     offsetX = 0 - fengari.load('return cameraX')();
-    offsetY = fengari.load('return cameraY')();
+    offsetY = 0 - fengari.load('return cameraY')();
     if(!isInMenu || !hasMenuBackground) {
         if(backgroundTiling) {
-            for(var x = 0; x < canvas.width / backgroundTile.width; x++) {
-                for(var y = 0; y < canvas.height / backgroundTile.height; y++) {
-                    ctx.drawImage(backgroundTile, x * backgroundTile.width + offsetX, y * backgroundTile.height + offsetY);
+            for(var x = 0; x < fengari.load('return mapSizeX')(); x++) {
+                for(var y = 0; y < fengari.load('return mapSizeY')(); y++) {
+                    ctx.drawImage(backgroundTile, mapX + x * backgroundTile.width + offsetX, mapY + y * backgroundTile.height + offsetY);
                 }
             }
         }
